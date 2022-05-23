@@ -22,7 +22,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to JWT Basics");
 });
-app.use(`${v1}/auth`, authRoutes);
+app.use(`${v1}`, authRoutes);
 //custom middlewares
 app.use(notFoundMiddleware);
 app.use(errorsHandlerMiddleware);
