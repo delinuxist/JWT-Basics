@@ -7,12 +7,14 @@ const { UnauthenticatedError, CustomAPIError } = require("../errors");
 const secret = process.env.jwt;
 
 exports.signUp = async (req, res) => {
-  const { username, password } = req.body;
+  // const { username, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  // const hashedPassword = await bcrypt.hash(password, 10);
 
-  const user = new User({ username, password: hashedPassword });
-  await user.save();
+  // const user = new User({ username, password: hashedPassword });
+  // await user.save();
+
+  const user = await User.create({ ...req.body });
 
   // remove password when returning
   user.password = undefined;
